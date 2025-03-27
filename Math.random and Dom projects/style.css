@@ -1,0 +1,48 @@
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* #box {
+  height: 200px;
+  width: 200px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  border: 6px solid white;
+} */
+/* button {
+  padding: 10px 20px;
+  font-size: 20px;
+} */
+/* button:active {
+  scale: 0.95;
+  /* correct way to write transform:scale(0.95) because it is part of standard css
+   but the above written code still works.This property reduces size by 95% }*/
+
+h1 {
+  padding: 20px 40px;
+  background-color: gainsboro;
+  border-radius: 5px;
+  margin: 30px 0;
+  font-size: 100px;
+  font-family: monospace;
+  letter-spacing: 5px;
+  text-align: center;
+}
+button {
+  padding: 15px 25px;
+  font-size: 20px;
+  background-color: lightseagreen;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+}
+
+h5 {
+  font-size: 40px;
+  color: white;
+}
