@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body class="min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8 space-y-6">
+      <!-- Header -->
+      <div class="text-center">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">
+          GitHub User Finder
+        </h1>
+        <p class="text-gray-500">
+          Search for any GitHub user's profile details
+        </p>
+      </div>
+
+      <!-- Search Form -->
+      <form class="flex items-center gap-3">
+        <input
+          type="text"
+          placeholder="Enter GitHub username"
+          class="usernameinp px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+        />
+        <button
+          type="submit"
+          class="search bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-xl transition"
+        >
+          Search
+        </button>
+      </form>
+
+      <!-- Dummy GitHub User Data -->
+        <div class=" card mt-8 p-6 bg-gray-50 rounded-xl shadow-inner">
+          </div>
+
+
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
