@@ -1,0 +1,10 @@
+/* if we apply css to a component so and these components are connected throught props drilling then the css will
+automatically implemented  so instead of using directly element name we create a class with naming convention
+ BEM (Block element Modifier) where block is file name element is element modiefier is part of elementcd */
+
+/* in module css we name the file as Read.module.css  and we import as import
+ style from "./Read.module.css */
+
+/* In module css also we should not use tag selector we should use id or class selector */
+
+/* We give classname as {style.container} */

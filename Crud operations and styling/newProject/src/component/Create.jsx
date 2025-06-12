@@ -1,24 +1,38 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { todocontext } from "./Wrapper";
+import { useContext } from "react";
 
-const Create = (props) => {
-  const todos = props.todos;
-  const settodos = props.settodos;
+const Create = () => {
+  const [todos, settodos] = useContext(todocontext);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  const [title, settitle] = useState("");
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const newtodo = {
-      id: nanoid(),
-      title,
-      isCompleted: true,
-    };
-    console.log(newtodo);
-    const copytodos = [...todos]; // we are making the copy of todos which is readonly we will replace copy with settodos
-    copytodos.push(newtodo);
+  const submitHandler = (data) => {
+    data.id = nanoid();
+    data.isCompleted = false;
+    console.log(data);
+
+    const copytodos = [...todos];
+    copytodos.push(data);
     settodos(copytodos);
-    settitle("");
+    toast.success("todo created!");
+
+    reset();
   };
+  // console.log(newtodo);
+  // const copytodos = [...todos]; // we are making the copy of todos which is readonly we will replace copy with settodos
+  // copytodos.push(newtodo);
+  // settodos(copytodos);
+  // settitle("");
+  console.log(errors);
+
   const buttoncss = {
     color: "white",
     backgroundColor: "transparent",
@@ -27,15 +41,16 @@ const Create = (props) => {
   };
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={handleSubmit(submitHandler)}>
         <input
           type="text"
+          {...register("title", { required: "title can't be empty" })}
           placeholder="title"
-          onChange={(e) => {
-            settitle(e.target.value);
-          }}
-          value={title}
         />
+        {/* {errors && errors.title && errors.title.message && (
+          <small>{errors.title.message}</small>
+        )} */}
+        <small>{errors?.title?.message}</small>
         <br /> <br />
         <button style={buttoncss}>Create Todo</button>
       </form>

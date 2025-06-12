@@ -8,13 +8,10 @@ const App = () => {
   // const [gender, setgender] = useState("male");
   // const [city, setcity] = useState("mumbai");
 
-  const [todos, settodos] = useState([
-    { id: 1, title: "kam ker lai bhai", isCompleted: false },
-  ]);
   return (
     <div>
-      <Create todos={todos} settodos={settodos} />
-      <Read todos={todos} settodos={settodos} />
+      <Create />
+      <Read />
       {/* <input
           checked={completed}
           type="checkbox"
