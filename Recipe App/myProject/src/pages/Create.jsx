@@ -2,7 +2,10 @@ import { nanoid } from "nanoid";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { recipecontext } from "../context/RecipeContext";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const Create = () => {
+  const navigate = useNavigate();
   const { data, setdata } = useContext(recipecontext);
   const { register, handleSubmit, reset } = useForm();
   const SubmitHandler = (recipe) => {
@@ -11,6 +14,9 @@ const Create = () => {
     const copydata = [...data];
     copydata.push(recipe);
     setdata(copydata);
+    localStorage.setItem("recipes", JSON.stringify(copydata));
+    toast.success("New Recipe Created!");
+    navigate("/recipes");
     reset();
   };
   console.log(data);
@@ -26,7 +32,7 @@ const Create = () => {
         <input {...register("title")} type="text" placeholder="Recipe title" />
 
         <textarea
-          {...register("description")}
+          {...register("descriptions")}
           placeholder="//Start from here"
         ></textarea>
 
@@ -36,13 +42,14 @@ const Create = () => {
         ></textarea>
 
         <textarea
-          {...register("instrucions")}
+          {...register("instructions")}
           placeholder="Write insructions"
         ></textarea>
         <select {...register("category")}>
-          <option value="cat-1">Category 1</option>
-          <option value="cat-2">Category 2</option>
-          <option value="cat-3">Category 3</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="supper">Supper</option>
+          <option value="Dinner">Dinner</option>
         </select>
 
         <button>Save Recipe</button>

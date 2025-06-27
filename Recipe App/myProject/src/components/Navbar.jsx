@@ -36,6 +36,15 @@ const Navbar = () => {
       >
         Create Recipe
       </NavLink>
+
+      <NavLink
+        to="/fav"
+        style={({ isActive }) => {
+          return isActive ? { color: "red" } : { color: "black" };
+        }}
+      >
+        Favourite
+      </NavLink>
     </div>
   );
 };
